@@ -1,0 +1,64 @@
+html, body{
+    background-color: #324B4D;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#nav_box {
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+    background-color: #167C84;
+    color: black;
+}
+
+#nav_box h2{
+    flex: 25%;
+}
+
+#nav_home a{
+    all: unset;
+
+}
+
+#nav_home a:hover {
+    background-color: #5442D3;
+}
+
+#nav_box h3{
+    flex: 15%;
+}
+
+footer {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #060607;
+}
+
+#socialMediaIcon p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#socialMediaIcon img {
+    display: block;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+#navBorder {
+    margin-top: 20px;
+    border-bottom: 5px #5442D3 solid;
+}
+
+#navLegal {
+    text-align: center;
+}
+
+#navLegal p {
+    margin-bottom: 10px;
+}
