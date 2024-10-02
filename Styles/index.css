@@ -5,30 +5,31 @@
     flex-wrap: wrap;
 }
 
-.projectBox {
-    display: flex;
-    flex: 35%;
+h1 {
+    text-align: center;
 }
 
-.individualProject {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#aboutMe h3 {
+    font-size: 1.2rem;
+    text-decoration: underline;
 }
 
-.image {
-    padding-right: 30px;
+#aboutMe p{
+    font-size: 0.7rem;
 }
 
-.info h4{
-    margin-bottom: 0;
+#pImg1, #pImg2, #pImg3, #pImg4 {
+    height: 5.3rem;
+}
+.info h3 {
+    font-size: 1rem;
+} 
+
+.info {
+    font-size: 0.6rem;
 }
 
-.info p {
-    width: 75%;
-}
+
 
 
 
