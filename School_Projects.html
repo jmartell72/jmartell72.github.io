@@ -12,13 +12,23 @@
 </head>
 
 <body>
-    <nav>
-        <div id="nav_box">
-            <h2 id="nav_home"><a href="index.html">Justin Martell's Portfolio</a></h2>
-            <h3><a href="./School_Projects.html">School Projects</a></h3>
-            <h3><a href=".">Java Projects</a></h3>
-            <h3><a href=".">HTML Projects</a></h3>
-            <h3><a href=".">Python Projects</a></h3>
+    <nav class="navbar sticky-top navbar-expand-md" style="background-color: #167C84;">
+        <div class="container-fluid" id="navContainer">
+            <a class="navbar-brand" href="index.html">Justin Martell's Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
+                aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarToggle">
+                <ul class="navbar-nav mb-2 mb-lg-0 j flex">
+                    <li class="nav-item"><a class="nav-link active" href="./School_Projects.html"
+                            aria-current="School Projects">School Projects</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href=".">Java Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href=".">HTML Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href=".">Python Projects</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

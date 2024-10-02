@@ -6,30 +6,15 @@ html, body{
     margin: 0;
 }
 
-/* #nav_box {
+#navContainer {
     display: flex;
     flex-direction: row;
-    padding-left: 30px;
-    background-color: #167C84;
-    color: black;
+    justify-content: center;
 }
 
-#nav_box h2{
-    flex: 25%;
+.navbar-nav {
+    align-items: center;
 }
-
-#nav_home a{
-    all: unset;
-
-}
-
-#nav_home a:hover {
-    background-color: #5442D3;
-}
-
-#nav_box h3{
-    flex: 15%;
-} */
 
 footer {
     padding-top: 15px;
