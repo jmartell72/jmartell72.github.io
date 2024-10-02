@@ -6,7 +6,7 @@ html, body{
     margin: 0;
 }
 
-#nav_box {
+/* #nav_box {
     display: flex;
     flex-direction: row;
     padding-left: 30px;
@@ -29,7 +29,7 @@ html, body{
 
 #nav_box h3{
     flex: 15%;
-}
+} */
 
 footer {
     padding-top: 15px;
