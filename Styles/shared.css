@@ -1,11 +1,15 @@
 body{
-    background-color: #324B4D !important;
-
+    background-color: #3b196a   !important;
+    color: #DFDFE2 !important;
 }
 
 main {
-    color: #DFDFE2;
+
     padding: 15px;
+}
+
+.navbar-brand, .nav-link {
+    color: #DFDFE2 !important;
 }
 
 #navContainer {
@@ -19,23 +23,28 @@ main {
 }
 
 .nav-link:hover{
-    color: #322784 !important;
+    color: #685180 !important;
     -webkit-text-stroke: 0.25px #140f33
 }
 
 .card {
-    background-color:#324B4D !important;
-    color: #DFDFE2 !important;
+    background-image: linear-gradient(to bottom, #DFDFE2, #3b196a );
+    color:#DFDFE2  !important;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-bottom: 0px;
+    border: none !important;
+
 }
 
 .card a{
-    color: #DFDFE2 !important;
-
+    color:#DFDFE2  !important;
+    
 }
 
 .card a:hover{
     background-color:#DFDFE2 !important;
-    color: #322784 !important;
+    color: #685180 !important;
     border-radius: 5px;
     padding: 4px;
 }
@@ -43,7 +52,7 @@ main {
 footer {
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: #060607;
+    background-color: #1d0520;
 }
 
 #socialMediaIcon p {
