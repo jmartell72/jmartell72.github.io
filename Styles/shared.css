@@ -9,8 +9,17 @@ main {
     padding: 15px;
 }
 
-.navbar-brand, .nav-link {
+navbar {
+    background-color: #8e7da7;
+}
+
+.navbar-brand,
+.nav-link {
     color: #DFDFE2 !important;
+}
+
+.active {
+    color: #685180 !important;
 }
 
 #navContainer {
@@ -23,7 +32,7 @@ main {
     align-items: center;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #685180 !important;
     -webkit-text-stroke: 0.25px #140f33
 }
