@@ -39,15 +39,11 @@
                         Resume</button>
                     <script>
                         $("#enter").click(function () {
-                            $("#box1").fadeOut("slow");
-                            setTimeout(function () {
+                            $("#box1").fadeOut(3000, function () {
                                 changeToHome();
-                            }, 1000);
-                            setTimeout(function () {
-                                $("#box1").fadeIn("slow")
-                            }, 2000)
-
-
+                                $("#box1").stop();
+                                $("#box1").fadeIn(3000)
+                            });
                         })
                     </script>
 

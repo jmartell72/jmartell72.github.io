@@ -1,8 +1,6 @@
-html,body{ 
-    background-image: linear-gradient(to bottom, #1d0520, #3b196a) !important;
-}
+
 body{
-    
+    background-image: linear-gradient(to bottom, #1d0520, #3b196a ) !important;
     color: #DFDFE2 !important;
 }
 
