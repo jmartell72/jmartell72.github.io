@@ -13,6 +13,9 @@ body {
     background-image: linear-gradient(to bottom, #1d0520, #3b196a ) !important;
 }
 
+#box1 {
+    height:100%;
+}
 
 #landing{
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
@@ -22,10 +25,13 @@ body {
     height: 100%;
 }
 
+main {
+    background-image:none;
+}
 
-/* footer {
-    background-color
-} */
+footer{
+    background-color: transparent;
+}
 
 .cover-container {
     max-width: 42em;
@@ -35,3 +41,4 @@ button {
     color:#685180 !important;
     background-color: #DFDFE2 !important;
 }
+

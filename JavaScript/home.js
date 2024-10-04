@@ -3,7 +3,7 @@ function addHome() {
     div.id = "home";
 
     div.innerHTML = `
-        <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background-color: #002a58 ;">
+        <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background-color: #8e7da7 ;">
         <div class="container-fluid" id="navContainer">
             <a class="navbar-brand" href="home.html">Justin Martell's Portfolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
