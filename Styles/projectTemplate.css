@@ -1,0 +1,13 @@
+#carouselHolder {
+    display: flex;
+    justify-content: space-around;
+}
+
+#carouselFade {
+    /* display: flex; */
+    width: 40%;
+}
+
+#subhead {
+    text-align: right;
+}
