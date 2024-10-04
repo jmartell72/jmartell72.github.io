@@ -12,11 +12,10 @@
     <script type="text/javascript" src="JavaScript/home.js"></script>
 </head>
 
-
 <body>
     <div id="box1">
         <div id="landing" class="d-flex h-100 text-center text-white bg-dark">
-            <link href="./Styles/home.css" rel="stylesheet">
+            <link href="./Styles/landing.css" rel="stylesheet">
             <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
                 <header class="mb-auto">
                     <div>
@@ -64,5 +63,10 @@
         </div>
     </div>
 </body>
+<script>
+    if (document.referrer) {
+        changeToHome();
+    }
+</script>
 
 </html>
