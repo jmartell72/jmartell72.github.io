@@ -46,7 +46,8 @@
                             class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title">Memory Game</h3>
-                            <a class="card-link" href="Memory_Game.html">Memory Game</a>
+                            <button id="toTemplateIoTPy">Introduction to Python - Final Project</button>
+
                             <p class="card-text">
                                 This project was a lot of fun to complete and I learned alot about Python! This is a
                                 small game where you pick two cards
@@ -64,7 +65,7 @@
                         <img src="./Images/pantry.png" alt="Project1" id="pImg1" class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title">Project 1 Header</h3>
-                            <a class="card-link" href=".">Project 1 Link</a>
+                            <button id="toTemplateMANGO">Introduction to Python - Final Project</button>
                             <p class="card-text">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
                                 repellendus,
@@ -84,15 +85,15 @@
                         <img src="./Images/pantry.png" alt="Project1" id="pImg1" class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title">Project 1 Header</h3>
-                            <a class="card-link" href=".">Project 1 Link</a>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Asperiores
-                                repellendus,
-                                omnis
-                                similique architecto eos quas magnam ex temporibus illo dolores officia
-                                exercitationem
-                                harum
-                                soluta corporis dicta at illum maxime voluptatem?</p>
+                            <<button id="toTemplateSHITMETIMBERS">Introduction to Python - Final Project</button>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Asperiores
+                                    repellendus,
+                                    omnis
+                                    similique architecto eos quas magnam ex temporibus illo dolores officia
+                                    exercitationem
+                                    harum
+                                    soluta corporis dicta at illum maxime voluptatem?</p>
                         </div>
                     </div>
                 </div>
@@ -119,6 +120,17 @@
             </div>
 
         </div>
+
+        <script>
+            $(document).ready(function () {
+                $("[id^=toTemplate]").click(function () {
+                    var name = $(this).attr('id').substring(10)
+                    var nextPageURL = "template.html?data=" + encodeURIComponent(name);
+                    window.location.href = nextPageURL;
+                }
+                )
+            })
+        </script>
     </main>
 
     <div id="footer-placeholder"></div>

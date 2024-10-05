@@ -30,7 +30,27 @@
 <script type="module">
     import { school } from "/JavaScript/templateFunctions.js";
 
-    (async () => {
-        const result = await school('IoTPy');
-    })();
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '=(.*?)(&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[1]) return '';
+        return decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    $(document).ready(function () {
+        var data = getParameterByName("data");
+        if (data) {
+
+
+            (async () => {
+                const result = await school(data);
+            })();
+            console.log(data);
+        }
+    });
+
+
 </script>
