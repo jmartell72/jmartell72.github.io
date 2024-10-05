@@ -41,14 +41,13 @@
     }
 
     $(document).ready(function () {
-        var data = getParameterByName("data");
-        if (data) {
+        var reference = getParameterByName("reference");
+        if (reference) {
 
 
             (async () => {
-                const result = await school(data);
+                const result = await school(reference);
             })();
-            console.log(data);
         }
     });
 

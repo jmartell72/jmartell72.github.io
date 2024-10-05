@@ -39,68 +39,29 @@
         </div>
 
         <div class="container-fluid text=center">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center">
-                    <div class="card">
-                        <img src="Images/Memory_Game/Memory_Game_Main.png" alt="Project1" id="pImg1"
-                            class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Memory Game</h3>
-                            <button id="toTemplateIoTPy">Introduction to Python - Final Project</button>
+            <div class="row" id="row">
 
-                            <p class="card-text">
-                                This project was a lot of fun to complete and I learned alot about Python! This is a
-                                small game where you pick two cards
-                                and see if they match. If they do, they automatically clear themselves from the board.
-                                It has settings for difficulty and will remember those settings on next startup.</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center">
-
+                <!-- <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center">
                     <div class="card">
                         <img src="./Images/pantry.png" alt="Project1" id="pImg1" class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title">Project 1 Header</h3>
-                            <button id="toTemplateMANGO">Introduction to Python - Final Project</button>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+                            <button id="toTemplateIoTPy">Introduction to Python - Final Project</button>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Asperiores
                                 repellendus,
                                 omnis
                                 similique architecto eos quas magnam ex temporibus illo dolores officia
                                 exercitationem
                                 harum
                                 soluta corporis dicta at illum maxime voluptatem?</p>
-                            </p>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center">
-                    <div class="card">
-                        <img src="./Images/pantry.png" alt="Project1" id="pImg1" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Project 1 Header</h3>
-                            <<button id="toTemplateSHITMETIMBERS">Introduction to Python - Final Project</button>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Asperiores
-                                    repellendus,
-                                    omnis
-                                    similique architecto eos quas magnam ex temporibus illo dolores officia
-                                    exercitationem
-                                    harum
-                                    soluta corporis dicta at illum maxime voluptatem?</p>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
 
 
 
-                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center">
+                <!-- <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center">
                     <div class="card">
                         <img src="./Images/pantry.png" alt="Project1" id="pImg1" class="card-img-top">
                         <div class="card-body">
@@ -116,26 +77,14 @@
                                 soluta corporis dicta at illum maxime voluptatem?</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> 
+            </div>-->
 
-        </div>
-
-        <script>
-            $(document).ready(function () {
-                $("[id^=toTemplate]").click(function () {
-                    var name = $(this).attr('id').substring(10)
-                    var nextPageURL = "template.html?data=" + encodeURIComponent(name);
-                    window.location.href = nextPageURL;
-                }
-                )
-            })
-        </script>
     </main>
 
     <div id="footer-placeholder"></div>
     <script>
-        $.get("partials/footer.html", function (data) {
+        $.get("/partials/footer.html", function (data) {
 
             $("#footer-placeholder").replaceWith(data);
         })
@@ -144,6 +93,18 @@
 
 </body>
 
+<script type="module">
+    import { projectHome } from "/JavaScript/templateFunctions.js";
+    (async () => {
+        const result = await projectHome();
+
+    })();
+
+</script>
 
 
 </html>
+
+<script>
+
+</script>
