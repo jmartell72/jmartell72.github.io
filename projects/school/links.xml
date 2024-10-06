@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<links>
+<link>
+    <ref>ItJ</ref>
+    <name>Introduction to Java - Final Project</name>
+    <url>https://raw.githubusercontent.com/jmartell72/SchoolProjects/refs/heads/main/Sophia.org/Introduction%20to%20Java%20Programming/FinalProgram/README.md</url>
+</link>
+
+<link>
+    <ref>ITPy</ref>
+
+    <name>Introduction to Python - Final Project</name>
+    <url>https://raw.githubusercontent.com/jmartell72/SchoolProjects/refs/heads/main/Sophia.org/Introduction%20to%20Python%20-%20Final%20Project/README.md</url>
+</link>

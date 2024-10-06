@@ -1,35 +1,28 @@
-#projects {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 2;
-    flex-wrap: wrap;
-}
-
-.projectBox {
-    display: flex;
-    flex: 35%;
-}
-
-.individualProject {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.image {
-    padding-right: 30px;
-}
-
-.info h4{
-    margin-bottom: 0;
-}
-
-.info p {
-    width: 75%;
+.card-body {
+    padding: 20px 10px 30px 10px !important;
+    padding-top: 10px !important;
 }
 
 
+button,
+input[type="submit"],
+input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+
+}
+
+button:hover {
+    color: #685180 !important;
+    -webkit-text-stroke: 0.25px #140f33
+}
 
 
+#button {
+    margin-bottom: 15px;
+}

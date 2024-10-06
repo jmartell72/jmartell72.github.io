@@ -1,0 +1,25 @@
+#carouselHolder {
+    display: flex;
+    justify-content: space-around;
+}
+
+#carouselFade {
+    /* display: flex; */
+    width: 40%;
+}
+
+#subhead {
+    text-align: right;
+}
+
+.partialBorder {
+    border-color: #DFDFE2 !important;
+}
+
+h2{
+    color: #3b3b3b !important;
+}
+
+h3 {
+    padding: 15px !important;
+}
