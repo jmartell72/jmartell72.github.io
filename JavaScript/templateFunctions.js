@@ -16,7 +16,7 @@ function getReadmeSpecific(website) {
 
                 // Find the URL for the specified website
                 let url = "";
-                $(xmlDoc).find("links").each(function () {
+                $(xmlDoc).find("link").each(function () {
                     if ($(this).find("ref").text() === String(website)) {
                         url = $(this).find("url").text();
                         return false; // Exit the loop once found
@@ -41,6 +41,7 @@ function getReadmeSpecific(website) {
     });
 }
 
+
 async function buildPageSpecific(id, website) {
     try {
         // only important bit, makes sure to get the string for use
@@ -56,57 +57,67 @@ async function buildPageSpecific(id, website) {
 
 async function buildProjectCard(id) {
     try {
-        const xmlData = await fetch("links.xml")
+        fetch("links.xml")
             .then(response => response.text())
-            .then(xmlString => new DOMParser().parseFromString(xmlString, "text/xml"));
+            .then(xmlString => {
+                const parser = new DOMParser(); // Create a DOM parser
+                const xmlDoc = parser.parseFromString(xmlString, "text/xml"); // Parse the XML
+                let x = 0
+                var card = '<div class="card"><div id="imgHold"></div><div class="card-body"><div id="title"></div><div id="button"></div><div id="pHold"></div></div>'
+                $(xmlDoc).find("link").each(async function () {
+                    var ref = $(this).find("ref").text();
+                    var link = $(this).find("link").text();
+                    var name = $(this).find("name").text();
+                    const result = await getReadmeSpecific(ref);
+                    var line = document.getElementById(id);
+                    var div = document.createElement("DIV");
+                    var newClass = "cClass" + ref
+                    $(div).addClass("col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center")
+                    $(div).addClass(newClass)
+                    div.innerHTML = card;
+                    line.appendChild(div);
 
-        var card = '<div class="card"><div id="imgHold"></div><div class="card-body"><div id="title"></div><div id="button"></div><div id="pHold"></div></div>'
-        $(xmlData).each(async function () {
-            var ref = $(this).find("ref").text();
-            var link = $(this).find("link").text();
-            var name = $(this).find("name").text();
-            const result = await getReadmeSpecific(String(ref));
-            var line = document.getElementById(id);
-            var div = document.createElement("DIV");
-            $(div).addClass("col-xs-12 col-sm-6 col-md-4 col-xl-3 center-block text-center")
-            div.innerHTML = card;
-            line.appendChild(div);
+                    // opens the README has a HTML to select elements as needed for processing
+                    var doc = new DOMParser().parseFromString(result, "text/html")
 
-            // opens the README has a HTML to select elements as needed for processing
-            var doc = new DOMParser().parseFromString(result, "text/html")
+                    // adds a the top image of the md file to the card
+                    newClass = "." + newClass
 
-            // adds a the top image of the md file to the card
+                    var img = doc.querySelector('img')
+                    $(img).addClass("card-img-top")
+                    $(img).removeAttr('height')
+                    var imgHold = newClass + " #imgHold"
+                    $(imgHold).append($(img))
 
-            var img = doc.querySelector('img')
-            $(img).addClass("card-img-top")
-            $(img).removeAttr('height')
-            $("#imgHold").append($(img))
+                    // adds a the h1 of the md file to the card as a h3
+                    var h3 = doc.querySelector('h1').innerHTML;
+                    h3 = '<h3 class="card-body">' + h3 + '</h3>'
+                    var title = newClass + " #title"
+                    $(title).append($(h3))
 
-            // adds a the h1 of the md file to the card as a h3
-            var h3 = doc.querySelector('h1').innerHTML;
-            h3 = '<h3 class="card-body">' + h3 + '</h3>'
-            $("#title").append($(h3))
+                    // adds a button to the card based on the link.xml data
+                    var buttonText = doc.querySelector('h2').innerHTML;
+                    var fullRef = "toTemplate" + String(ref)
+                    var button = '<button id="' + fullRef + '">Link To<br>' + buttonText + '</button>'
+                    var buttonID = newClass + " #button"
+                    $(buttonID).append($(button))
 
-            // adds a button to the card based on the link.xml data
-            var buttonText = doc.querySelector('h2').innerHTML;
-            var fullRef = "toTemplate" + String(ref)
-            var button = '<button id="' + fullRef + '">' + buttonText + '</button>'
-            $('#button').append($(button))
+                    // allows the button to redirect to the proper template for processing
+                    var buttonItem = document.getElementById(fullRef)
+                    buttonItem.addEventListener('click', (function () {
+                        var name = fullRef.substring(10)
+                        var nextPageURL = "template.html?reference=" + encodeURIComponent(name);
+                        window.location.href = nextPageURL;
+                    }));
 
-            // allows the button to redirect to the proper template for processing
-            var buttonItem = document.getElementById(fullRef)
-            buttonItem.addEventListener('click', (function () {
-                var name = fullRef.substring(10)
-                var nextPageURL = "template.html?reference=" + encodeURIComponent(name);
-                window.location.href = nextPageURL;
-            }));
-
-            // adds the first p of the md file
-            var p = doc.querySelector('p')
-            $(p).addClass("card-text")
-            $("#pHold").append($(p))
-        })
-
+                    // adds the first p of the md file
+                    var p = doc.querySelector('p')
+                    $(p).addClass("card-text")
+                    var pID = newClass + " #pHold"
+                    $(pID).append($(p))
+                })
+            })
+            .catch(error => reject(error));
     } catch (error) {
         console.error("Error:", error)
     }
@@ -151,6 +162,26 @@ export async function school(website) {
         $.get("../../partials/footer.html", function (data) {
 
             $("#footer-placeholder").replaceWith(data);
+        })
+
+        let i = 0
+        $('p').each(function () {
+            var p = $(this).html()
+            let j = 2
+            let newString = ""
+            for (var i = 0; i < p.length; i++) {
+                var character = p.charAt(i)
+                if (character === "`" && j % 2 == 0) {
+                    newString += "<code>&lt;";
+                    j++
+                } else if (character === "`") {
+                    newString += "&gt;</code>";
+                    j++
+                } else {
+                    newString += character;
+                }
+            }
+            $(this).html(newString)
         })
 
     } catch (error) {
