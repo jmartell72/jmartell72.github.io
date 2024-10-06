@@ -1,8 +1,8 @@
 //put your local README.md here
-function getReadmeSpecific(website) {
+function getReadmeSpecific(website, xmlFile) {
     return new Promise((resolve, reject) => {
         // Fetch the links data asynchronously
-        fetch("links.xml")
+        fetch(xmlFile)
             .then(response => response.text())
             .then(xmlString => {
                 const parser = new DOMParser(); // Create a DOM parser
@@ -10,7 +10,7 @@ function getReadmeSpecific(website) {
 
                 // Check for parsing errors
                 if (xmlDoc.documentElement.nodeName === "parsererror") {
-                    reject(new Error("Error parsing links.xml"));
+                    reject(new Error("Error parsing " + xmlFile));
                     return;
                 }
 
@@ -25,7 +25,7 @@ function getReadmeSpecific(website) {
 
                 // Check if URL was found
                 if (!url) {
-                    reject(new Error("Website not found in links.xml"));
+                    reject(new Error("Website not found in" + xmlFile));
                     return;
                 }
 
@@ -42,10 +42,10 @@ function getReadmeSpecific(website) {
 }
 
 
-async function buildPageSpecific(id, website) {
+async function buildPageSpecific(id, website, xmlFile) {
     try {
         // only important bit, makes sure to get the string for use
-        const result = await getReadmeSpecific(website);
+        const result = await getReadmeSpecific(website, xmlFile);
         var line = document.getElementById(id);
         var div = document.createElement("DIV");
         div.innerHTML = result;
@@ -55,9 +55,12 @@ async function buildPageSpecific(id, website) {
     }
 };
 
-async function buildProjectCard(id) {
+async function buildProjectCard(id, location) {
+
+    let xmlFile = "/links/" + location + "Links.xml"
+
     try {
-        fetch("links.xml")
+        fetch(xmlFile)
             .then(response => response.text())
             .then(xmlString => {
                 const parser = new DOMParser(); // Create a DOM parser
@@ -68,7 +71,7 @@ async function buildProjectCard(id) {
                     var ref = $(this).find("ref").text();
                     var link = $(this).find("link").text();
                     var name = $(this).find("name").text();
-                    const result = await getReadmeSpecific(ref);
+                    const result = await getReadmeSpecific(ref, xmlFile);
                     var line = document.getElementById(id);
                     var div = document.createElement("DIV");
                     var newClass = "cClass" + ref
@@ -132,7 +135,7 @@ export async function school(website) {
             $("#nav-placeholder").replaceWith(data);
         })
 
-        await buildPageSpecific("pageBuilder", website);
+        await buildPageSpecific("pageBuilder", website, "/links/schoolLinks.xml");
 
         $("#carouselHolder").append('<div id="carouselFade" class="carousel slide carousel-fade"><div class="carousel-inner" id="imgAppend"></div><button class="carousel-control-prev" type="button" data-bs-target="#carouselFade" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselFade" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></div>');
 
@@ -189,12 +192,12 @@ export async function school(website) {
     }
 }
 
-export async function projectHome() {
+export async function projectHome(location) {
     try {
-        await buildProjectCard("row");
+        await buildProjectCard("row", location);
 
     } catch (error) {
-        console.error("Error: ".error);
+        console.error("Error: ", error);
     }
 
 
