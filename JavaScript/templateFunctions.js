@@ -69,7 +69,7 @@ async function buildProjectCard(id, location) {
                 var card = '<div class="card"><div id="imgHold"></div><div class="card-body"><div id="title"></div><div id="button"></div><div id="pHold"></div></div>'
                 $(xmlDoc).find("link").each(async function () {
                     var ref = $(this).find("ref").text();
-                    var link = $(this).find("link").text();
+                    var type = $(this).find("type").text();
                     var name = $(this).find("name").text();
                     const result = await getReadmeSpecific(ref, xmlFile);
                     var line = document.getElementById(id);
@@ -107,12 +107,20 @@ async function buildProjectCard(id, location) {
 
                     // allows the button to redirect to the proper template for processing
                     var buttonItem = document.getElementById(fullRef)
-                    buttonItem.addEventListener('click', (function () {
-                        var name = fullRef.substring(10)
-                        var nextPageURL = "template.html?reference=" + encodeURIComponent(name);
-                        window.location.href = nextPageURL;
-                    }));
-
+                    // sets button redirect location based on type for index
+                    if (type != null) {
+                        buttonItem.addEventListener('click', (function () {
+                            var name = fullRef.substring(10)
+                            var nextPageURL = "projects/" + location + "/template.html?reference=" + encodeURIComponent(name);
+                            window.location.href = nextPageURL;
+                        }));
+                    } else {
+                        buttonItem.addEventListener('click', (function () {
+                            var name = fullRef.substring(10)
+                            var nextPageURL = "template.html?reference=" + encodeURIComponent(name);
+                            window.location.href = nextPageURL;
+                        }));
+                    }
                     // adds the first p of the md file
                     var p = doc.querySelector('p')
                     $(p).addClass("card-text")
