@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Projects - Justin Martell's Portfolio</title>
+    <title>HTML Projects - Justin Martell's Portfolio</title>
     <link href="/Styles/shared.css" rel="stylesheet">
     <link href="/Styles/projects.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery.min.js"></script>
@@ -21,7 +21,7 @@
             $("#nav-placeholder").replaceWith(data);
         })
         $(document).ready(function () {
-            $('#python').addClass('active');
+            $('#html').addClass('active');
         });
     </script>
 
@@ -29,14 +29,15 @@
     <main>
 
         <header>
-            <h1>Projects Completed While In School</h1>
+            <h1>HTML Front-End Projects</h1>
         </header>
         <div id="aboutProjects">
             <h2>About these projects</h2>
-            <p>These are projects I crafted throughout my journey to obtaining my Bachelors in Software Engineering.
-                While in school, I had the pleasure of coding in backend scripts such as Python3, Java, and SQL. I
-                also have experience in front-end development using CSS, HTML, and JavaScript. Below you can find
-                these projects so enjoy!</p>
+            <p>I am constantly evolving as an HTML Front-End Developer and learn something new with each and every
+                project. Some of my earliest coding experiences was learning Front-End work from Udamey courses. This
+                website is currently my largest project to date but I am pretty pleased with the way it came out. I am
+                proficient in BootStrap, HTML, CSS (including flexbox and grid displays), JS, JQuery, and Node. Check
+                out the code for my resume site for more information!</p>
         </div>
 
         <div class="container-fluid text=center">
@@ -59,7 +60,7 @@
 <script type="module">
     import { projectHome } from "/JavaScript/templateFunctions.js";
     (async () => {
-        const result = await projectHome("python");
+        const result = await projectHome("html");
 
     })();
 
