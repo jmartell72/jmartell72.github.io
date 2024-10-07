@@ -202,10 +202,30 @@ export async function school(website) {
 
 export async function projectHome(location) {
     try {
-        await buildProjectCard("row", location);
+        let fileLocation = "/links/" + location + "Links.xml";
+
+        function checkExists() {
+            var http = new XMLHttpRequest();
+            http.open('HEAD', fileLocation, false);
+            http.send()
+            return http.status != 404;
+        }
+
+        if (checkExists()) {
+            await buildProjectCard("row", location);
+        } else {
+            var line = document.getElementById("topD1");
+            var div = document.createElement("DIV");
+            div.innerHTML = "<h3>Looks like this section is missing currently! Check out my featured projects instead!</h3>";
+            line.appendChild(div);
+
+            await buildProjectCard("row", "featured");
+        }
+
 
     } catch (error) {
         console.error("Error: ", error);
+
     }
 
 
