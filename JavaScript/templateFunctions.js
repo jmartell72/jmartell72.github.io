@@ -69,6 +69,7 @@ async function buildProjectCard(id, location) {
                 var card = '<div class="card"><div id="imgHold"></div><div class="card-body"><div id="title"></div><div id="button"></div><div id="pHold"></div></div>'
                 $(xmlDoc).find("link").each(async function () {
                     var ref = $(this).find("ref").text();
+                    console.log($(this).find("type"))
                     var type = $(this).find("type").text();
                     var name = $(this).find("name").text();
                     const result = await getReadmeSpecific(ref, xmlFile);
@@ -104,14 +105,14 @@ async function buildProjectCard(id, location) {
                     var button = '<button id="' + fullRef + '">Link To<br>' + buttonText + '</button>'
                     var buttonID = newClass + " #button"
                     $(buttonID).append($(button))
-
                     // allows the button to redirect to the proper template for processing
                     var buttonItem = document.getElementById(fullRef)
                     // sets button redirect location based on type for index
-                    if (type != null) {
+                    if (!(type.length == 0)) {
+
                         buttonItem.addEventListener('click', (function () {
                             var name = fullRef.substring(10)
-                            var nextPageURL = "projects/" + location + "/template.html?reference=" + encodeURIComponent(name);
+                            var nextPageURL = "projects/" + type + "/template.html?reference=" + encodeURIComponent(name);
                             window.location.href = nextPageURL;
                         }));
                     } else {
