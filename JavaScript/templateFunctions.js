@@ -51,6 +51,7 @@ async function buildPageSpecific(id, website, xmlFile) {
         div.innerHTML = result;
         line.appendChild(div);
     } catch (error) {
+        document.getElementById("placeHolder").innerHTML = '<h1>Uh oh! Looks like this project does not exist, click <a href=" / ">here</a> to return to the home page!</h1>'
         console.error("Error:", error)
     }
 };
