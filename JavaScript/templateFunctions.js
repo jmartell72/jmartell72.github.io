@@ -113,7 +113,7 @@ async function buildProjectCard(id, location) {
 
                         buttonItem.addEventListener('click', (function () {
                             var name = fullRef.substring(10)
-                            var nextPageURL = "projects/" + type + "/template.html?reference=" + encodeURIComponent(name);
+                            var nextPageURL = "/projects/" + type + "/template.html?reference=" + encodeURIComponent(name);
                             window.location.href = nextPageURL;
                         }));
                     } else {
