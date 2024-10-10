@@ -22,15 +22,16 @@
         })();
     </script>
     <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('contactForm').addEventListener('submit', function (event) {
+        window.onload = async function () {
+            document.getElementById('contactForm').addEventListener('submit', async function (event) {
                 event.preventDefault();
-                emailjs.sendForm('default_service', 'contact_form', this)
+                await emailjs.sendForm('default_service', 'contact_form', this)
                     .then(() => {
                         alert('We will be in touch shortly')
                     }, (error) => {
-                        alert('Error: ', error)
+                        alert('Whoops, looks like there was an issue! Submit a ticket on the repo here https://github.com/jmartell72/jmartell72.github.io/issues')
                     })
+                location.reload()
             })
         }
     </script>
