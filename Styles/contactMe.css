@@ -1,0 +1,19 @@
+.btn:hover {
+    background-color: #685180 !important;
+    color: #DFDFE2 !important;
+}
+
+.btn {
+    background-color: #DFDFE2 !important;
+
+}
+
+.form-control {
+    background-color: #DFDFE2 !important;
+}
+
+
+.parsley-required {
+    padding-top: 15px;
+    color: #c5b5dd;
+}
